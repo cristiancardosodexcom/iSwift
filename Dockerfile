@@ -56,9 +56,16 @@ COPY . ${WORK_DIR}/iSwift
 
 WORKDIR ${WORK_DIR}/iSwift
 
-RUN swift package update
-RUN swift build
-RUN jupyter kernelspec install iSwiftKernel
+#RUN swift package update
+
+#RUN swift build
+
+#RUN jupyter kernelspec install iSwiftKernel
+RUN jupyter kernelspec install SwiftK  --user
+
+ENV PYTHONPATH "${PYTHONPATH}:/root/.local/share/jupyter/kernels/swiftk"
+
+RUN jupyter kernelspec list
 
 EXPOSE 8888
 
