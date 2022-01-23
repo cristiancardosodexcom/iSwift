@@ -40,14 +40,20 @@ RUN cd /tmp/ \
 RUN apt-get -y install openssl libssl-dev
 
 #Install Pip3
-RUN apt-get install -y python3-pip
+RUN apt-get install -y python3 python3-pip
 
-RUN pip3 install --upgrade pip
+RUN curl "https://bootstrap.pypa.io/pip/3.5/get-pip.py" -o "get-pip.py"
 
-# Install Jupyter
+RUN python3 get-pip.py --user
+
+RUN pip3 --version
+
+RUN python3 --version
+
 RUN pip3 install jupyter
 
 COPY . ${WORK_DIR}/iSwift
+
 WORKDIR ${WORK_DIR}/iSwift
 
 RUN swift package update
@@ -56,6 +62,4 @@ RUN jupyter kernelspec install iSwiftKernel
 
 EXPOSE 8888
 
-RUN mkdir notebooks
-
-CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--NotebookApp.token=", "--ip=0.0.0.0", "--notebook-dir=notebooks"]
+CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=", "--ip=0.0.0.0", "--notebook-dir=Clases"]
