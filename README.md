@@ -1,4 +1,4 @@
-# Update 2018-01-29
+# Update 2022-01-22
 
 I had to shut down the Demo server because someone is using it to mine bitcoins. (by default, jupyter will allow anyone to create a terminal and there's no way to disable it easily.) If anyone is interested in setting it up locally, I'm glad to help.
 
@@ -16,10 +16,6 @@ It can:
   + Support encryption.
   + Support Linux/macOS
 
-## Demo
-
-![Imgur](http://i.imgur.com/9NpJckS.gif)
-
 ## Requirements
 
   + macOS/Linux
@@ -27,55 +23,20 @@ It can:
   + ZMQ
   + Jupyter 5.0
 
-## macOS Installation
-
-Clone this repo locally. And:
-
-1. Follow [this](https://github.com/Zewo/ZeroMQ/blob/master/setup_env.sh) script to install the libzmq on your machine.
-
-2. Build the project.
-
-```
-swift build
-```
-
-3. Currently, in order to run swift kernel locally, you need to create a file named
-`kernel.json`. Put the following content to the file and replace the `Path/to/iSwift`
-with your local clone path.
-
-```json
-{
- "argv": ["Path/to/iSwift/.build/debug/iSwift", "-f", "{connection_file}"],
- "display_name": "Swift",
- "language": "swift"
-}
-```
-
-4. Install Jupyter kernel: (replace the `Folder/that/has/kernel/json` with
-  the path of the folder that contains the `kernel.json` file)
-
-```
-jupyter-kernelspec install Folder/that/has/kernel.json
-```
-
-5. Run Jupyter Notebook (token needs to be empty):
-```
-jupyter notebook --NotebookApp.token=
-```
-
-## Linux Installation
-
-1. Install Swift 3.0.
-2. Check if you have libzmq installed.
-3. Continue from step 2 in the section above.
-
 ## Docker Installation
 
 Simply clone this repo and run `docker build -t iswift .`. It will build the docker image.
 
+## Docker Run
+```
+sudo docker run -t -i -p 8888:8888 --privileged iswift
+```
 ## Author
 
 [Jin Wang](https://twitter.com/jinw1990)
+
+## Customization
+[Cristian Cardoso] 
 
 ## Contribution
 
