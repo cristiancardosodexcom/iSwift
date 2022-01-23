@@ -1,4 +1,4 @@
-# Update 2018-01-29
+# Update 2022-01-22
 
 I had to shut down the Demo server because someone is using it to mine bitcoins. (by default, jupyter will allow anyone to create a terminal and there's no way to disable it easily.) If anyone is interested in setting it up locally, I'm glad to help.
 
