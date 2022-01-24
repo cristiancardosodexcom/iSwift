@@ -31,11 +31,7 @@ Simply clone this repo and run `docker build -t iswift .`. It will build the doc
 ```
 sudo docker run -t -i -p 8888:8888 --privileged iswift
 
-## Classes
-```
-sudo docker run -t -i -p 8888:8888 --privileged iswift
 http://localhost:8888/tree
-
 ```
 ## Author
 
